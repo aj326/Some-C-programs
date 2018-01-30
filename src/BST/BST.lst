@@ -1,0 +1,816 @@
+GAS LISTING BST.s 			page 1
+
+
+   1              		.file	"BST.c"
+   2              		.intel_syntax noprefix
+   3              		.text
+   4              	.Ltext0:
+   5              		.section	.rodata.str1.1,"aMS",@progbits,1
+   6              	.LC0:
+   7 0000 74616C6C 		.string	"talloc failed."
+   7      6F632066 
+   7      61696C65 
+   7      642E00
+   8              		.text
+   9              		.p2align 4,,15
+  10              		.globl	talloc
+  12              	talloc:
+  13              	.LFB38:
+  14              		.file 1 "BST.c"
+   1:BST.c         **** #include "BST.h"
+   2:BST.c         **** 
+   3:BST.c         **** TREE talloc()           /* allocate a new token record */
+   4:BST.c         **** {
+  15              		.loc 1 4 0
+  16              		.cfi_startproc
+  17 0000 53       		push	rbx
+  18              		.cfi_def_cfa_offset 16
+  19              		.cfi_offset 3, -16
+   5:BST.c         ****     TREE tree;
+   6:BST.c         ****     tree = (TREE) calloc(1, sizeof(struct node));
+  20              		.loc 1 6 0
+  21 0001 BE180000 		mov	esi, 24
+  21      00
+  22 0006 BF010000 		mov	edi, 1
+  22      00
+  23 000b E8000000 		call	calloc
+  23      00
+  24              	.LVL0:
+   7:BST.c         ****     if ( tree != NULL ) return (tree);
+  25              		.loc 1 7 0
+  26 0010 4885C0   		test	rax, rax
+   6:BST.c         ****     if ( tree != NULL ) return (tree);
+  27              		.loc 1 6 0
+  28 0013 4889C3   		mov	rbx, rax
+  29              	.LVL1:
+  30              		.loc 1 7 0
+  31 0016 7405     		je	.L5
+  32              	.LVL2:
+  33              	.L2:
+   8:BST.c         ****     else
+   9:BST.c         ****     {
+  10:BST.c         ****         printf("talloc failed.");
+  11:BST.c         ****         return NULL;
+  12:BST.c         ****     }
+  13:BST.c         **** }
+  34              		.loc 1 13 0
+  35 0018 4889D8   		mov	rax, rbx
+  36 001b 5B       		pop	rbx
+  37              		.cfi_remember_state
+  38              		.cfi_def_cfa_offset 8
+GAS LISTING BST.s 			page 2
+
+
+  39              	.LVL3:
+  40 001c C3       		ret
+  41              	.L5:
+  42              		.cfi_restore_state
+  43              	.LVL4:
+  44              	.LBB32:
+  45              	.LBB33:
+  46              	.LBB34:
+  47              		.file 2 "/usr/include/x86_64-linux-gnu/bits/stdio2.h"
+   1:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** /* Checking macros for stdio functions.
+   2:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    Copyright (C) 2004, 2005, 2007, 2008, 2012 Free Software Foundation, Inc.
+   3:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    This file is part of the GNU C Library.
+   4:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+   5:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    The GNU C Library is free software; you can redistribute it and/or
+   6:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    modify it under the terms of the GNU Lesser General Public
+   7:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    License as published by the Free Software Foundation; either
+   8:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    version 2.1 of the License, or (at your option) any later version.
+   9:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  10:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    The GNU C Library is distributed in the hope that it will be useful,
+  11:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  13:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    Lesser General Public License for more details.
+  14:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  15:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    You should have received a copy of the GNU Lesser General Public
+  16:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    License along with the GNU C Library; if not, see
+  17:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****    <http://www.gnu.org/licenses/>.  */
+  18:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  19:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #ifndef _STDIO_H
+  20:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # error "Never include <bits/stdio2.h> directly; use <stdio.h> instead."
+  21:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  22:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  23:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __sprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+  24:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  const char *__restrict __format, ...) __THROW;
+  25:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vsprintf_chk (char *__restrict __s, int __flag, size_t __slen,
+  26:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   const char *__restrict __format,
+  27:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   _G_va_list __ap) __THROW;
+  28:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  29:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #ifdef __va_arg_pack
+  30:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  31:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (sprintf (char *__restrict __s, const char *__restrict __fmt, ...))
+  32:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  33:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+  34:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				  __bos (__s), __fmt, __va_arg_pack ());
+  35:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  36:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #elif !defined __cplusplus
+  37:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # define sprintf(str, ...) \
+  38:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   __builtin___sprintf_chk (str, __USE_FORTIFY_LEVEL - 1, __bos (str), \
+  39:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   __VA_ARGS__)
+  40:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  41:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  42:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  43:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (vsprintf (char *__restrict __s, const char *__restrict __fmt,
+  44:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		 _G_va_list __ap))
+  45:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  46:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___vsprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+  47:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				   __bos (__s), __fmt, __ap);
+  48:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+GAS LISTING BST.s 			page 3
+
+
+  49:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  50:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #if defined __USE_BSD || defined __USE_ISOC99 || defined __USE_UNIX98
+  51:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  52:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __snprintf_chk (char *__restrict __s, size_t __n, int __flag,
+  53:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   size_t __slen, const char *__restrict __format,
+  54:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   ...) __THROW;
+  55:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vsnprintf_chk (char *__restrict __s, size_t __n, int __flag,
+  56:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    size_t __slen, const char *__restrict __format,
+  57:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    _G_va_list __ap) __THROW;
+  58:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  59:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # ifdef __va_arg_pack
+  60:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  61:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (snprintf (char *__restrict __s, size_t __n,
+  62:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		 const char *__restrict __fmt, ...))
+  63:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  64:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+  65:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				   __bos (__s), __fmt, __va_arg_pack ());
+  66:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  67:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # elif !defined __cplusplus
+  68:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #  define snprintf(str, len, ...) \
+  69:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   __builtin___snprintf_chk (str, len, __USE_FORTIFY_LEVEL - 1, __bos (str), \
+  70:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			    __VA_ARGS__)
+  71:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # endif
+  72:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  73:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  74:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __NTH (vsnprintf (char *__restrict __s, size_t __n,
+  75:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 		  const char *__restrict __fmt, _G_va_list __ap))
+  76:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  77:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __builtin___vsnprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+  78:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 				    __bos (__s), __fmt, __ap);
+  79:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+  80:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  81:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #endif
+  82:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  83:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** #if __USE_FORTIFY_LEVEL > 1
+  84:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  85:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __fprintf_chk (FILE *__restrict __stream, int __flag,
+  86:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  const char *__restrict __format, ...);
+  87:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __printf_chk (int __flag, const char *__restrict __format, ...);
+  88:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vfprintf_chk (FILE *__restrict __stream, int __flag,
+  89:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			   const char *__restrict __format, _G_va_list __ap);
+  90:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** extern int __vprintf_chk (int __flag, const char *__restrict __format,
+  91:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			  _G_va_list __ap);
+  92:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+  93:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** # ifdef __va_arg_pack
+  94:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+  95:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
+  96:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+  97:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+  98:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 			__va_arg_pack ());
+  99:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** }
+ 100:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** 
+ 101:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** __fortify_function int
+ 102:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** printf (const char *__restrict __fmt, ...)
+ 103:/usr/include/x86_64-linux-gnu/bits/stdio2.h **** {
+ 104:/usr/include/x86_64-linux-gnu/bits/stdio2.h ****   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+  48              		.loc 2 104 0
+GAS LISTING BST.s 			page 4
+
+
+  49 001d BE000000 		mov	esi, OFFSET FLAT:.LC0
+  49      00
+  50 0022 BF010000 		mov	edi, 1
+  50      00
+  51 0027 31C0     		xor	eax, eax
+  52              	.LVL5:
+  53 0029 E8000000 		call	__printf_chk
+  53      00
+  54              	.LVL6:
+  55 002e EBE8     		jmp	.L2
+  56              	.LBE34:
+  57              	.LBE33:
+  58              	.LBE32:
+  59              		.cfi_endproc
+  60              	.LFE38:
+  62              		.section	.rodata.str1.1
+  63              	.LC1:
+  64 000f 524F4F54 		.string	"ROOT VAL: %d\t length %d\n"
+  64      2056414C 
+  64      3A202564 
+  64      09206C65 
+  64      6E677468 
+  65              	.LC2:
+  66 0028 256400   		.string	"%d"
+  67              		.section	.rodata.str1.8,"aMS",@progbits,1
+  68              		.align 8
+  69              	.LC3:
+  70 0000 6D616B69 		.string	"making left child with parent of %d with %d\n"
+  70      6E67206C 
+  70      65667420 
+  70      6368696C 
+  70      64207769 
+  71              		.section	.rodata.str1.1
+  72              	.LC4:
+  73 002b 72656375 		.string	"recursing root l"
+  73      7273696E 
+  73      6720726F 
+  73      6F74206C 
+  73      00
+  74              		.section	.rodata.str1.8
+  75 002d 000000   		.align 8
+  76              	.LC5:
+  77 0030 6D616B69 		.string	"making right child with parent of %d with %d\n"
+  77      6E672072 
+  77      69676874 
+  77      20636869 
+  77      6C642077 
+  78              		.section	.rodata.str1.1
+  79              	.LC6:
+  80 003c 72656375 		.string	"recursing root r"
+  80      7273696E 
+  80      6720726F 
+  80      6F742072 
+  80      00
+  81              	.LC7:
+  82 004d 6265666F 		.string	"before return, ROOT:%d"
+  82      72652072 
+GAS LISTING BST.s 			page 5
+
+
+  82      65747572 
+  82      6E2C2052 
+  82      4F4F543A 
+  83              		.text
+  84              		.p2align 4,,15
+  85              		.globl	construct
+  87              	construct:
+  88              	.LFB39:
+  14:BST.c         **** 
+  15:BST.c         **** TREE construct(TREE root, int length)
+  16:BST.c         **** {
+  89              		.loc 1 16 0
+  90              		.cfi_startproc
+  91              	.LVL7:
+  92 0030 4154     		push	r12
+  93              		.cfi_def_cfa_offset 16
+  94              		.cfi_offset 12, -16
+  95 0032 4989FC   		mov	r12, rdi
+  96 0035 55       		push	rbp
+  97              		.cfi_def_cfa_offset 24
+  98              		.cfi_offset 6, -24
+  99 0036 89F5     		mov	ebp, esi
+ 100 0038 53       		push	rbx
+ 101              		.cfi_def_cfa_offset 32
+ 102              		.cfi_offset 3, -32
+ 103 0039 4889FB   		mov	rbx, rdi
+ 104 003c 4883EC10 		sub	rsp, 16
+ 105              		.cfi_def_cfa_offset 48
+  17:BST.c         ****     if (length <= 0) return root;
+ 106              		.loc 1 17 0
+ 107 0040 85F6     		test	esi, esi
+ 108 0042 7E77     		jle	.L7
+ 109              	.LVL8:
+ 110              	.LBB35:
+ 111              	.LBB36:
+ 112              		.loc 2 104 0
+ 113 0044 8B17     		mov	edx, DWORD PTR [rdi]
+ 114 0046 89F1     		mov	ecx, esi
+ 115 0048 BF010000 		mov	edi, 1
+ 115      00
+ 116              	.LVL9:
+ 117 004d BE000000 		mov	esi, OFFSET FLAT:.LC1
+ 117      00
+ 118              	.LVL10:
+ 119 0052 31C0     		xor	eax, eax
+ 120 0054 E8000000 		call	__printf_chk
+ 120      00
+ 121              	.LVL11:
+ 122              	.LBE36:
+ 123              	.LBE35:
+  18:BST.c         ****     int culprit;
+  19:BST.c         ****     printf("ROOT VAL: %d\t length %d\n", root->val, length);
+  20:BST.c         ****     fscanf(fp, "%d", &culprit);
+ 124              		.loc 1 20 0
+ 125 0059 488B3D00 		mov	rdi, QWORD PTR fp[rip]
+ 125      000000
+ 126 0060 488D5424 		lea	rdx, [rsp+12]
+GAS LISTING BST.s 			page 6
+
+
+ 126      0C
+ 127 0065 BE000000 		mov	esi, OFFSET FLAT:.LC2
+ 127      00
+ 128 006a 31C0     		xor	eax, eax
+ 129 006c E8000000 		call	__isoc99_fscanf
+ 129      00
+ 130              	.LVL12:
+  21:BST.c         ****     TREE child = talloc();
+ 131              		.loc 1 21 0
+ 132 0071 31C0     		xor	eax, eax
+ 133 0073 E8000000 		call	talloc
+ 133      00
+ 134              	.LVL13:
+  22:BST.c         ****     child->val = culprit;
+ 135              		.loc 1 22 0
+ 136 0078 8B4C240C 		mov	ecx, DWORD PTR [rsp+12]
+ 137 007c 8908     		mov	DWORD PTR [rax], ecx
+  23:BST.c         **** 
+  24:BST.c         ****     if (culprit < root->val)
+ 138              		.loc 1 24 0
+ 139 007e 8B13     		mov	edx, DWORD PTR [rbx]
+ 140 0080 39D1     		cmp	ecx, edx
+ 141 0082 7C4C     		jl	.L15
+  25:BST.c         ****     {
+  26:BST.c         ****         if (!root->left)
+  27:BST.c         ****         {
+  28:BST.c         ****             root->left = child;
+  29:BST.c         ****             printf("making left child with parent of %d with %d\n", root->val, child->val);
+  30:BST.c         ****             construct(root, length - 1);
+  31:BST.c         **** 
+  32:BST.c         ****         }
+  33:BST.c         ****         else
+  34:BST.c         ****         {
+  35:BST.c         ****             printf("recursing root l\n");
+  36:BST.c         ****             return construct(root->left, length - 1);
+  37:BST.c         ****         }
+  38:BST.c         ****     }
+  39:BST.c         ****     else
+  40:BST.c         ****     {
+  41:BST.c         ****         if (!root->right)
+ 142              		.loc 1 41 0
+ 143 0084 48837B10 		cmp	QWORD PTR [rbx+16], 0
+ 143      00
+ 144 0089 0F849900 		je	.L16
+ 144      0000
+ 145              	.LVL14:
+ 146              	.LBB37:
+ 147              	.LBB38:
+ 148              		.loc 2 104 0
+ 149 008f BF000000 		mov	edi, OFFSET FLAT:.LC6
+ 149      00
+ 150 0094 E8000000 		call	puts
+ 150      00
+ 151              	.LVL15:
+ 152              	.LBE38:
+ 153              	.LBE37:
+  42:BST.c         ****         {
+GAS LISTING BST.s 			page 7
+
+
+  43:BST.c         ****             root->right = child;
+  44:BST.c         ****             printf("making right child with parent of %d with %d\n", root->val, child->val);
+  45:BST.c         ****             construct(root, length - 1);
+  46:BST.c         ****         }
+  47:BST.c         ****         else
+  48:BST.c         ****         {
+  49:BST.c         ****             printf("recursing root r\n");
+  50:BST.c         ****             construct(root->right, length - 1);
+ 154              		.loc 1 50 0
+ 155 0099 488B7B10 		mov	rdi, QWORD PTR [rbx+16]
+ 156 009d 8D75FF   		lea	esi, [rbp-1]
+ 157 00a0 E8000000 		call	construct
+ 157      00
+ 158              	.LVL16:
+ 159              	.L10:
+ 160              	.LBB39:
+ 161              	.LBB40:
+ 162              		.loc 2 104 0
+ 163 00a5 8B13     		mov	edx, DWORD PTR [rbx]
+ 164 00a7 BE000000 		mov	esi, OFFSET FLAT:.LC7
+ 164      00
+ 165 00ac BF010000 		mov	edi, 1
+ 165      00
+ 166 00b1 31C0     		xor	eax, eax
+ 167              	.LBE40:
+ 168              	.LBE39:
+  51:BST.c         ****         }
+  52:BST.c         ****     }
+  53:BST.c         ****     printf("before return, ROOT:%d",root->val);
+  54:BST.c         **** return root;
+ 169              		.loc 1 54 0
+ 170 00b3 4989DC   		mov	r12, rbx
+ 171              	.LBB42:
+ 172              	.LBB41:
+ 173              		.loc 2 104 0
+ 174 00b6 E8000000 		call	__printf_chk
+ 174      00
+ 175              	.LVL17:
+ 176              	.L7:
+ 177              	.LBE41:
+ 178              	.LBE42:
+  55:BST.c         **** }
+ 179              		.loc 1 55 0
+ 180 00bb 4883C410 		add	rsp, 16
+ 181              		.cfi_remember_state
+ 182              		.cfi_def_cfa_offset 32
+ 183 00bf 4C89E0   		mov	rax, r12
+ 184 00c2 5B       		pop	rbx
+ 185              		.cfi_def_cfa_offset 24
+ 186              	.LVL18:
+ 187 00c3 5D       		pop	rbp
+ 188              		.cfi_def_cfa_offset 16
+ 189              	.LVL19:
+ 190 00c4 415C     		pop	r12
+ 191              		.cfi_def_cfa_offset 8
+ 192              	.LVL20:
+ 193 00c6 C3       		ret
+GAS LISTING BST.s 			page 8
+
+
+ 194              	.LVL21:
+ 195 00c7 660F1F84 		.p2align 4,,10
+ 195      00000000 
+ 195      00
+ 196              		.p2align 3
+ 197              	.L15:
+ 198              		.cfi_restore_state
+  26:BST.c         ****         {
+ 199              		.loc 1 26 0
+ 200 00d0 48837B08 		cmp	QWORD PTR [rbx+8], 0
+ 200      00
+ 201 00d5 7429     		je	.L17
+ 202              	.LVL22:
+ 203              	.LBB43:
+ 204              	.LBB44:
+ 205              		.loc 2 104 0
+ 206 00d7 BF000000 		mov	edi, OFFSET FLAT:.LC4
+ 206      00
+ 207 00dc E8000000 		call	puts
+ 207      00
+ 208              	.LVL23:
+ 209              	.LBE44:
+ 210              	.LBE43:
+  36:BST.c         ****         }
+ 211              		.loc 1 36 0
+ 212 00e1 488B7B08 		mov	rdi, QWORD PTR [rbx+8]
+ 213 00e5 8D75FF   		lea	esi, [rbp-1]
+ 214 00e8 E8000000 		call	construct
+ 214      00
+ 215              	.LVL24:
+ 216              		.loc 1 55 0
+ 217 00ed 4883C410 		add	rsp, 16
+ 218              		.cfi_remember_state
+ 219              		.cfi_def_cfa_offset 32
+  36:BST.c         ****         }
+ 220              		.loc 1 36 0
+ 221 00f1 4989C4   		mov	r12, rax
+ 222              		.loc 1 55 0
+ 223 00f4 5B       		pop	rbx
+ 224              		.cfi_def_cfa_offset 24
+ 225              	.LVL25:
+ 226 00f5 5D       		pop	rbp
+ 227              		.cfi_def_cfa_offset 16
+ 228              	.LVL26:
+ 229 00f6 4C89E0   		mov	rax, r12
+ 230 00f9 415C     		pop	r12
+ 231              		.cfi_def_cfa_offset 8
+ 232 00fb C3       		ret
+ 233              	.LVL27:
+ 234 00fc 0F1F4000 		.p2align 4,,10
+ 235              		.p2align 3
+ 236              	.L17:
+ 237              		.cfi_restore_state
+  28:BST.c         ****             printf("making left child with parent of %d with %d\n", root->val, child->val);
+ 238              		.loc 1 28 0
+ 239 0100 48894308 		mov	QWORD PTR [rbx+8], rax
+ 240              	.LVL28:
+GAS LISTING BST.s 			page 9
+
+
+ 241              	.LBB45:
+ 242              	.LBB46:
+ 243              		.loc 2 104 0
+ 244 0104 BE000000 		mov	esi, OFFSET FLAT:.LC3
+ 244      00
+ 245              	.LVL29:
+ 246              	.L14:
+ 247              	.LBE46:
+ 248              	.LBE45:
+ 249              	.LBB47:
+ 250              	.LBB48:
+ 251 0109 BF010000 		mov	edi, 1
+ 251      00
+ 252 010e 31C0     		xor	eax, eax
+ 253              	.LVL30:
+ 254 0110 E8000000 		call	__printf_chk
+ 254      00
+ 255              	.LVL31:
+ 256              	.LBE48:
+ 257              	.LBE47:
+  45:BST.c         ****         }
+ 258              		.loc 1 45 0
+ 259 0115 8D75FF   		lea	esi, [rbp-1]
+ 260 0118 4889DF   		mov	rdi, rbx
+ 261 011b E8000000 		call	construct
+ 261      00
+ 262              	.LVL32:
+ 263 0120 EB83     		jmp	.L10
+ 264              	.LVL33:
+ 265              		.p2align 4,,10
+ 266 0122 660F1F44 		.p2align 3
+ 266      0000
+ 267              	.L16:
+  43:BST.c         ****             printf("making right child with parent of %d with %d\n", root->val, child->val);
+ 268              		.loc 1 43 0
+ 269 0128 48894310 		mov	QWORD PTR [rbx+16], rax
+ 270              	.LVL34:
+ 271              	.LBB50:
+ 272              	.LBB49:
+ 273              		.loc 2 104 0
+ 274 012c BE000000 		mov	esi, OFFSET FLAT:.LC5
+ 274      00
+ 275 0131 EBD6     		jmp	.L14
+ 276              	.LBE49:
+ 277              	.LBE50:
+ 278              		.cfi_endproc
+ 279              	.LFE39:
+ 281              		.section	.rodata.str1.1
+ 282              	.LC8:
+ 283 0064 25640A00 		.string	"%d\n"
+ 284              		.text
+ 285 0133 66666666 		.p2align 4,,15
+ 285      2E0F1F84 
+ 285      00000000 
+ 285      00
+ 286              		.globl	printLTR
+ 288              	printLTR:
+GAS LISTING BST.s 			page 10
+
+
+ 289              	.LFB40:
+  56:BST.c         **** TREE printLTR(TREE root)
+  57:BST.c         **** {
+ 290              		.loc 1 57 0
+ 291              		.cfi_startproc
+ 292              	.LVL35:
+  58:BST.c         ****     if (root != NULL)
+ 293              		.loc 1 58 0
+ 294 0140 4885FF   		test	rdi, rdi
+  57:BST.c         ****     if (root != NULL)
+ 295              		.loc 1 57 0
+ 296 0143 53       		push	rbx
+ 297              		.cfi_def_cfa_offset 16
+ 298              		.cfi_offset 3, -16
+  57:BST.c         ****     if (root != NULL)
+ 299              		.loc 1 57 0
+ 300 0144 4889FB   		mov	rbx, rdi
+ 301              		.loc 1 58 0
+ 302 0147 744B     		je	.L20
+ 303              	.LVL36:
+ 304              	.LBB51:
+ 305              	.LBB52:
+ 306              		.loc 2 104 0
+ 307 0149 8B17     		mov	edx, DWORD PTR [rdi]
+ 308 014b 31C0     		xor	eax, eax
+ 309 014d BE000000 		mov	esi, OFFSET FLAT:.LC8
+ 309      00
+ 310 0152 BF010000 		mov	edi, 1
+ 310      00
+ 311              	.LVL37:
+ 312 0157 E8000000 		call	__printf_chk
+ 312      00
+ 313              	.LVL38:
+ 314              	.LBE52:
+ 315              	.LBE51:
+  59:BST.c         ****     {
+  60:BST.c         ****         printf("%d\n", root->val);
+  61:BST.c         ****         if (root->left != NULL) printf("%d\n", root->left->val);
+ 316              		.loc 1 61 0
+ 317 015c 488B4308 		mov	rax, QWORD PTR [rbx+8]
+ 318 0160 4885C0   		test	rax, rax
+ 319 0163 7413     		je	.L21
+ 320              	.LVL39:
+ 321              	.LBB53:
+ 322              	.LBB54:
+ 323              		.loc 2 104 0 discriminator 1
+ 324 0165 8B10     		mov	edx, DWORD PTR [rax]
+ 325 0167 BE000000 		mov	esi, OFFSET FLAT:.LC8
+ 325      00
+ 326 016c BF010000 		mov	edi, 1
+ 326      00
+ 327 0171 31C0     		xor	eax, eax
+ 328 0173 E8000000 		call	__printf_chk
+ 328      00
+ 329              	.LVL40:
+ 330              	.L21:
+ 331              	.LBE54:
+GAS LISTING BST.s 			page 11
+
+
+ 332              	.LBE53:
+  62:BST.c         ****         if (root->right != NULL) printf("%d\n", root->right->val);
+ 333              		.loc 1 62 0
+ 334 0178 488B4310 		mov	rax, QWORD PTR [rbx+16]
+ 335 017c 4885C0   		test	rax, rax
+ 336 017f 7413     		je	.L20
+ 337              	.LVL41:
+ 338              	.LBB55:
+ 339              	.LBB56:
+ 340              		.loc 2 104 0 discriminator 1
+ 341 0181 8B10     		mov	edx, DWORD PTR [rax]
+ 342 0183 BE000000 		mov	esi, OFFSET FLAT:.LC8
+ 342      00
+ 343 0188 BF010000 		mov	edi, 1
+ 343      00
+ 344 018d 31C0     		xor	eax, eax
+ 345 018f E8000000 		call	__printf_chk
+ 345      00
+ 346              	.LVL42:
+ 347              	.L20:
+ 348              	.LBE56:
+ 349              	.LBE55:
+  63:BST.c         ****     }
+  64:BST.c         ****     return root;
+  65:BST.c         **** }
+ 350              		.loc 1 65 0
+ 351 0194 4889D8   		mov	rax, rbx
+ 352 0197 5B       		pop	rbx
+ 353              		.cfi_def_cfa_offset 8
+ 354              	.LVL43:
+ 355 0198 C3       		ret
+ 356              		.cfi_endproc
+ 357              	.LFE40:
+ 359              		.section	.rodata.str1.1
+ 360              	.LC9:
+ 361 0068 6265666F 		.string	"before root"
+ 361      72652072 
+ 361      6F6F7400 
+ 362              	.LC10:
+ 363 0074 7200     		.string	"r"
+ 364              	.LC11:
+ 365 0076 4253542E 		.string	"BST.in"
+ 365      696E00
+ 366              	.LC12:
+ 367 007d 61667465 		.string	"after root"
+ 367      7220726F 
+ 367      6F7400
+ 368              		.section	.text.startup,"ax",@progbits
+ 369              		.p2align 4,,15
+ 370              		.globl	main
+ 372              	main:
+ 373              	.LFB41:
+  66:BST.c         **** 
+  67:BST.c         **** 
+  68:BST.c         **** int main(int argc, char const *argv[])
+  69:BST.c         **** {
+ 374              		.loc 1 69 0
+GAS LISTING BST.s 			page 12
+
+
+ 375              		.cfi_startproc
+ 376              	.LVL44:
+ 377 0000 53       		push	rbx
+ 378              		.cfi_def_cfa_offset 16
+ 379              		.cfi_offset 3, -16
+ 380              	.LBB57:
+ 381              	.LBB58:
+ 382              		.loc 2 104 0
+ 383 0001 BF000000 		mov	edi, OFFSET FLAT:.LC9
+ 383      00
+ 384              	.LVL45:
+ 385              	.LBE58:
+ 386              	.LBE57:
+ 387              		.loc 1 69 0
+ 388 0006 4883EC10 		sub	rsp, 16
+ 389              		.cfi_def_cfa_offset 32
+ 390              	.LBB60:
+ 391              	.LBB59:
+ 392              		.loc 2 104 0
+ 393 000a E8000000 		call	puts
+ 393      00
+ 394              	.LVL46:
+ 395              	.LBE59:
+ 396              	.LBE60:
+  70:BST.c         ****     int length;
+  71:BST.c         ****     printf("before root\n");
+  72:BST.c         ****     fp = fopen("BST.in", "r");
+ 397              		.loc 1 72 0
+ 398 000f BE000000 		mov	esi, OFFSET FLAT:.LC10
+ 398      00
+ 399 0014 BF000000 		mov	edi, OFFSET FLAT:.LC11
+ 399      00
+ 400 0019 E8000000 		call	fopen
+ 400      00
+ 401              	.LVL47:
+  73:BST.c         ****     fscanf(fp, "%d", &length);
+ 402              		.loc 1 73 0
+ 403 001e 488D5424 		lea	rdx, [rsp+12]
+ 403      0C
+ 404 0023 4889C7   		mov	rdi, rax
+ 405 0026 BE000000 		mov	esi, OFFSET FLAT:.LC2
+ 405      00
+  72:BST.c         ****     fscanf(fp, "%d", &length);
+ 406              		.loc 1 72 0
+ 407 002b 48890500 		mov	QWORD PTR fp[rip], rax
+ 407      000000
+ 408              		.loc 1 73 0
+ 409 0032 31C0     		xor	eax, eax
+ 410 0034 E8000000 		call	__isoc99_fscanf
+ 410      00
+ 411              	.LVL48:
+  74:BST.c         **** 
+  75:BST.c         ****     TREE root = talloc();
+ 412              		.loc 1 75 0
+ 413 0039 31C0     		xor	eax, eax
+ 414 003b E8000000 		call	talloc
+ 414      00
+GAS LISTING BST.s 			page 13
+
+
+ 415              	.LVL49:
+  76:BST.c         ****     fscanf(fp, "%d", &root->val);
+ 416              		.loc 1 76 0
+ 417 0040 488B3D00 		mov	rdi, QWORD PTR fp[rip]
+ 417      000000
+ 418 0047 4889C2   		mov	rdx, rax
+  75:BST.c         ****     fscanf(fp, "%d", &root->val);
+ 419              		.loc 1 75 0
+ 420 004a 4889C3   		mov	rbx, rax
+ 421              	.LVL50:
+ 422              		.loc 1 76 0
+ 423 004d BE000000 		mov	esi, OFFSET FLAT:.LC2
+ 423      00
+ 424 0052 31C0     		xor	eax, eax
+ 425              	.LVL51:
+ 426 0054 E8000000 		call	__isoc99_fscanf
+ 426      00
+ 427              	.LVL52:
+  77:BST.c         ****     construct(root, length);
+ 428              		.loc 1 77 0
+ 429 0059 8B74240C 		mov	esi, DWORD PTR [rsp+12]
+ 430 005d 4889DF   		mov	rdi, rbx
+ 431 0060 E8000000 		call	construct
+ 431      00
+ 432              	.LVL53:
+ 433              	.LBB61:
+ 434              	.LBB62:
+ 435              		.loc 2 104 0
+ 436 0065 BF000000 		mov	edi, OFFSET FLAT:.LC12
+ 436      00
+ 437 006a E8000000 		call	puts
+ 437      00
+ 438              	.LVL54:
+ 439              	.LBE62:
+ 440              	.LBE61:
+  78:BST.c         ****     printf("after root\n");
+  79:BST.c         ****     printLTR(root);
+ 441              		.loc 1 79 0
+ 442 006f 4889DF   		mov	rdi, rbx
+ 443 0072 E8000000 		call	printLTR
+ 443      00
+ 444              	.LVL55:
+  80:BST.c         ****     return 0;
+  81:BST.c         **** }
+ 445              		.loc 1 81 0
+ 446 0077 4883C410 		add	rsp, 16
+ 447              		.cfi_def_cfa_offset 16
+ 448 007b 31C0     		xor	eax, eax
+ 449 007d 5B       		pop	rbx
+ 450              		.cfi_def_cfa_offset 8
+ 451              	.LVL56:
+ 452 007e C3       		ret
+ 453              		.cfi_endproc
+ 454              	.LFE41:
+ 456              		.local	fp
+ 457              		.comm	fp,8,8
+ 458              		.globl	i
+GAS LISTING BST.s 			page 14
+
+
+ 459              		.bss
+ 460              		.align 4
+ 463              	i:
+ 464 0000 00000000 		.zero	4
+ 465              		.comm	nums,4096,32
+ 466              		.text
+ 467              	.Letext0:
+ 468              		.file 3 "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h"
+ 469              		.file 4 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 470              		.file 5 "/usr/include/stdio.h"
+ 471              		.file 6 "/usr/include/libio.h"
+ 472              		.file 7 "BST.h"
+ 473              		.file 8 "/usr/include/stdlib.h"
+ 474              		.file 9 "<built-in>"
+GAS LISTING BST.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 BST.c
+               BST.s:12     .text:0000000000000000 talloc
+               BST.s:87     .text:0000000000000030 construct
+               BST.s:457    .bss:0000000000000008 fp
+               BST.s:288    .text:0000000000000140 printLTR
+               BST.s:372    .text.startup:0000000000000000 main
+               BST.s:463    .bss:0000000000000000 i
+                            *COM*:0000000000001000 nums
+
+UNDEFINED SYMBOLS
+calloc
+__printf_chk
+__isoc99_fscanf
+puts
+fopen

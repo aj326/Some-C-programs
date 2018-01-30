@@ -1,0 +1,22 @@
+before root
+ROOT VAL: 8	 length 9
+making left child with parent of 8 with 3
+ROOT VAL: 8	 length 8
+recursing root l
+ROOT VAL: 3	 length 7
+making right child with parent of 3 with 10
+ROOT VAL: 3	 length 6
+recursing root r
+ROOT VAL: 10	 length 5
+making left child with parent of 10 with 4
+ROOT VAL: 10	 length 4
+recursing root l
+ROOT VAL: 4	 length 3
+making right child with parent of 4 with 14
+ROOT VAL: 4	 length 2
+recursing root r
+ROOT VAL: 14	 length 1
+making right child with parent of 14 with 32656
+before return, ROOT:14before return, ROOT:4before return, ROOT:4before return, ROOT:10before return, ROOT:3before return, ROOT:3before return, ROOT:8after root
+8
+3
